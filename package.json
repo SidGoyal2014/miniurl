@@ -1,0 +1,21 @@
+{
+  "name": "miniurl",
+  "version": "1.0.0",
+  "description": "This is a URL shortner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "mysql": "^2.18.1",
+    "nanoid": "^3.1.23",
+    "path": "^0.12.7",
+    "pug": "^3.0.2"
+  }
+}

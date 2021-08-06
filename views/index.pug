@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<HTML>
+    <head>
+        <title>MINIURL</title>
+    </head>
+
+    <body>
+        <form action="/" method="POST">
+            <input type="url" name="url" id="url"><br>
+            <input type="submit">
+        </form>
+        <br>
+
+        |   #{text}
+
+        <script>
+        |   // var x = "'" + #{text} + "'";
+        |   var x = !{JSON.stringify(text)};
+        |   // var x = #{text}
+        |   console.log(x);
+        </script>
+    </body>
+</HTML>
