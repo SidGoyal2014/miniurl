@@ -51,7 +51,7 @@ app.get("/:urlID", (req,res)=>{
     // console.log("we are at code get");
 
     var code = req.params.urlID;
-    console.log(code);
+    // console.log(code);
 
     var sql = "SELECT * FROM urls WHERE (surl = '" + code + "')"; 
     // console.log(sql);
@@ -66,10 +66,10 @@ app.get("/:urlID", (req,res)=>{
             }
             else{
                 var longurl = result[0].lurl;
-                console.log(longurl);
+                // console.log(longurl);
                 res.redirect(longurl);
             }
-            console.log(result);
+            // console.log(result);
         }
     })
     // console.log("We are here. A get request");
@@ -85,7 +85,7 @@ app.post('/', (req,res)=>{
     }
 
     var sql = "SELECT * FROM urls WHERE (lurl = '" + inputdata.url + "')";
-    console.log(sql);
+    // console.log(sql);
 
     con.query(sql, (err,result)=>{
         if(err){
@@ -93,8 +93,8 @@ app.post('/', (req,res)=>{
         }
         else{
             if(result != null && result.length > 0){
-                console.log("Already Present");
-                console.log(result);
+                // console.log("Already Present");
+                // console.log(result);
                 var link = result[0].surl; // link already present
                 link = website_url + link;
                 link = String(link);
@@ -102,7 +102,7 @@ app.post('/', (req,res)=>{
                 res.status(200).render('index.pug', {text : link, lurl : inputdata.url});
             }
             else{
-                console.log("Already not present");
+                // console.log("Already not present");
                 // console.log(nanoid);
                 // console.log(nanoid.nanoid(20));
                 /*
@@ -113,7 +113,7 @@ app.post('/', (req,res)=>{
                 var link_display = website_url + link;
 
                 var sql = "INSERT INTO urls (lurl, surl) VALUES ('" + inputdata.url + "', '" + link + "')";
-                console.log(sql);
+                // console.log(sql);
 
                 con.query(sql, (err,result)=>{
                     if(err){
