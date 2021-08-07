@@ -1,23 +1,97 @@
 <!DOCTYPE HTML>
 <HTML>
     <head>
-        <title>MINIURL</title>
+        <title>MiniURL</title>
+
+        | <!---- INCLUDE BOOTSTRAP CSS----->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
+
+        | <!--- INCLUDE External CSS -->
+        <link rel="stylesheet" href="../static/css/index.css">
+
+        | <!---- INCLUDE BOOTSTRAP JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
+
+        <style>
+        </style>
     </head>
 
     <body>
-        <form action="/" method="POST">
-            <input type="url" name="url" id="url"><br>
-            <input type="submit">
-        </form>
+        | <!---HEADER--->
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">MiniURL</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            | <!----<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>--->
+                        </li>
+                    </ul>
+                    <span class="navbar-text">
+                        | <!--- Navbar text with an inline element--->
+                    </span>
+                </div>
+            </nav>
+        </div>
+
+        <br>
+        <div class="container">
+            <label for="basic-url" class="form-label">Enter Your long URL here</label>
+            <form class="row g-3" action="/" method="POST">
+                <div class="input-group mb-3">
+                    |<!-----<span class="input-group-text" id="basic-addon3">https://example.com/users/</span>--->
+                    <input type="url" name="url" class="form-control" id="basic-url" aria-describedby="basic-addon3" value="" required>
+                </div>
+                <div class="col-auto">
+                    <button type="submit" class="btn btn-primary mb-3">Get MiniURL</button>
+                </div>
+            </form>
+            <strong>MiniURL</strong>
+            <br>
+            <a id="miniurl" href="google.com">#{text}</a>
+        </div>
         <br>
 
-        |   #{text}
+        | <!---- FOOTER ----->
+        |<!-- Remove the container if you want to extend the Footer to full width. -->
+        <div class="container-fluid" id="footer">
+            |<!-- Footer -->
+            <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
+                |<!-- Section: Links  -->
+                <section class="">
+                </section>
+                |<!-- Section: Links  -->
+
+                |<!-- Copyright -->
+                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+                    |© 2021 Copyright:
+                    <a class="text-white" href="https://mdbootstrap.com/">miniurl.com</a>
+                </div>
+            |<!-- Copyright -->
+            </footer>
+            |<!-- Footer -->
+        </div>
+        |<!-- End of .container -->
 
         <script>
         |   // var x = "'" + #{text} + "'";
         |   var x = !{JSON.stringify(text)};
         |   // var x = #{text}
         |   console.log(x);
+
+        |   /// DOM MANIPULATION
+        |   var mini = document.getElementById("miniurl");
+        |   console.log(mini);
+        |   mini.href = x;
+
+        |   var lurl = !{JSON.stringify(lurl)};
+        |   console.log(lurl);
+
+        |   var input_url = document.getElementById("basic-url");
+        |   input_url.value = lurl;
         </script>
     </body>
 </HTML>

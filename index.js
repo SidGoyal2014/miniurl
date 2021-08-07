@@ -5,7 +5,7 @@ const fs = require('fs');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const port = 3000;
-const website_url = "https://www.minurl.com/";
+const website_url = "http://127.0.0.1:3000/";
 
 // const { customRandom, urlAlphabet } = require('nanoid')
 const nanoid = require('nanoid');
@@ -42,23 +42,26 @@ app.set('views', path.join(__dirname,'views'));
 
 // ENDPOINTS
 app.get("/", (req,res)=>{
-    console.log("We are here. A get request");
+    //  console.log("We are here. A get request");
     res.status(200).render('index.pug');
 });
 
 // redirect
-app.get("/:code", (req,res)=>{
-    var code = req.params.code;
+app.get("/:urlID", (req,res)=>{
+    // console.log("we are at code get");
+
+    var code = req.params.urlID;
     console.log(code);
 
     var sql = "SELECT * FROM urls WHERE (surl = '" + code + "')"; 
+    // console.log(sql);
 
     con.query(sql, (err,result)=>{
         if(err){
             throw err;
         }
         else{
-            if(result == null){
+            if(result == null || result.length <= 0){
                 res.status(200).render('pagenotfound.pug');
             }
             else{
@@ -90,14 +93,16 @@ app.post('/', (req,res)=>{
         }
         else{
             if(result != null && result.length > 0){
+                console.log("Already Present");
                 console.log(result);
                 var link = result[0].surl; // link already present
                 link = website_url + link;
                 link = String(link);
                 // var link = "LINK ALREADY PRESENT";
-                res.status(200).render('index.pug', {text : link});
+                res.status(200).render('index.pug', {text : link, lurl : inputdata.url});
             }
             else{
+                console.log("Already not present");
                 // console.log(nanoid);
                 // console.log(nanoid.nanoid(20));
                 /*
@@ -118,7 +123,7 @@ app.post('/', (req,res)=>{
                         console.log(result);
                     }
                 })
-                res.status(200).render('index.pug', {text : link_display});
+                res.status(200).render('index.pug', {text : link_display, lurl: inputdata.url});
             }
         }
     });
