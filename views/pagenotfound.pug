@@ -1,76 +1,14 @@
-<!DOCTYPE HTML>
-<html>
-    <head>
-        <title>miniurl</title>
+include templates/header.pug
+<br>
+<br>
 
-        | <!---- INCLUDE external css----->
-        <link rel="stylesheet" href="../static/css/pagenotfound.css">
+<div class="container-sm" align="center">
+    <div class="container-md">
+        <h1>404 NOT FOUND</h1>
+    </div>
+    <div class="container-md">
+        <a href="/">back</a>
+    </div>
+</div>
 
-        | <!---- INCLUDE extaernal JavaScript> ----->
-        | <!---- <script src="../static/js/pagenotfound.js"></script> -->
-
-        | <!---- INCLUDE BOOTSTRAP CSS----->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css">
-
-        | <!---- INCLUDE BOOTSTRAP JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
-
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    </head>
-
-    <body>
-
-        |<!--- HEADER --->
-        | <!---HEADER--->
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">MiniURL</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarText">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            | <!----<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>--->
-                        </li>
-                    </ul>
-                    <span class="navbar-text">
-                        | <!--- Navbar text with an inline element--->
-                    </span>
-                </div>
-            </nav>
-        </div>
-        <br>
-        <br>
-
-        <div class="container-sm" align="center">
-            <div class="container-md">
-                <h1>404 NOT FOUND</h1>
-            </div>
-            <div class="container-md">
-                <a href="/">back</a>
-            </div>
-        </div>
-
-        | <!---- FOOTER ----->
-        |<!-- Remove the container if you want to extend the Footer to full width. -->
-        <div class="container-fluid" id="footer">
-            |<!-- Footer -->
-            <footer class="text-center text-lg-start text-white" style="background-color: #1c2331">
-                |<!-- Section: Links  -->
-                <section class="">
-                </section>
-                |<!-- Section: Links  -->
-
-                |<!-- Copyright -->
-                <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-                    |© 2021 Copyright:
-                    <a class="text-white" href="https://mdbootstrap.com/">miniurl.com</a>
-                </div>
-            |<!-- Copyright -->
-            </footer>
-            |<!-- Footer -->
-        </div>
-        |<!-- End of .container -->
-    </body>
-</html>
+include templates/footer.pug
